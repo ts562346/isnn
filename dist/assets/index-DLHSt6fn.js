@@ -13,7 +13,7 @@ Please change the parent <Route path="${e}"> to <Route path="${e===`/`?`*`:`${e}
 \r
     <head>\r
         <meta charset="utf-8">\r
-        <title>THEMosque - Mosque Website Template</title>\r
+        <title>ISNNS Ummah</title>\r
         <meta content="width=device-width, initial-scale=1.0" name="viewport">\r
         <meta content="" name="keywords">\r
         <meta content="" name="description">\r
@@ -773,7 +773,7 @@ Please change the parent <Route path="${e}"> to <Route path="${e===`/`?`*`:`${e}
 \r
     <head>\r
         <meta charset="utf-8">\r
-        <title>THEMosque - Mosque Website Template</title>\r
+        <title>ISNNS Ummah</title>\r
         <meta content="width=device-width, initial-scale=1.0" name="viewport">\r
         <meta content="" name="keywords">\r
         <meta content="" name="description">\r
@@ -916,7 +916,7 @@ Please change the parent <Route path="${e}"> to <Route path="${e===`/`?`*`:`${e}
 \r
     <head>\r
         <meta charset="utf-8">\r
-        <title>THEMosque - Mosque Website Template</title>\r
+        <title>ISNNS Ummah</title>\r
         <meta content="width=device-width, initial-scale=1.0" name="viewport">\r
         <meta content="" name="keywords">\r
         <meta content="" name="description">\r
@@ -1325,7 +1325,7 @@ Please change the parent <Route path="${e}"> to <Route path="${e===`/`?`*`:`${e}
 \r
     <head>\r
         <meta charset="utf-8">\r
-        <title>THEMosque - Mosque Website Template</title>\r
+        <title>ISNNS Ummah</title>\r
         <meta content="width=device-width, initial-scale=1.0" name="viewport">\r
         <meta content="" name="keywords">\r
         <meta content="" name="description">\r
@@ -1408,7 +1408,7 @@ Please change the parent <Route path="${e}"> to <Route path="${e===`/`?`*`:`${e}
 \r
     <head>\r
         <meta charset="utf-8">\r
-        <title>THEMosque - Mosque Website Template</title>\r
+        <title>ISNNS Ummah</title>\r
         <meta content="width=device-width, initial-scale=1.0" name="viewport">\r
         <meta content="" name="keywords">\r
         <meta content="" name="description">\r
@@ -1577,7 +1577,7 @@ Please change the parent <Route path="${e}"> to <Route path="${e===`/`?`*`:`${e}
 \r
     <head>\r
         <meta charset="utf-8">\r
-        <title>THEMosque - Mosque Website Template</title>\r
+        <title>ISNNS Ummah</title>\r
         <meta content="width=device-width, initial-scale=1.0" name="viewport">\r
         <meta content="" name="keywords">\r
         <meta content="" name="description">\r
@@ -1740,7 +1740,7 @@ Please change the parent <Route path="${e}"> to <Route path="${e===`/`?`*`:`${e}
 \r
     <head>\r
         <meta charset="utf-8">\r
-        <title>THEMosque - Mosque Website Template</title>\r
+        <title>ISNNS Ummah</title>\r
         <meta content="width=device-width, initial-scale=1.0" name="viewport">\r
         <meta content="" name="keywords">\r
         <meta content="" name="description">\r
@@ -1824,7 +1824,7 @@ Please change the parent <Route path="${e}"> to <Route path="${e===`/`?`*`:`${e}
 \r
     <head>\r
         <meta charset="utf-8">\r
-        <title>THEMosque - Mosque Website Template</title>\r
+        <title>ISNNS Ummah</title>\r
         <meta content="width=device-width, initial-scale=1.0" name="viewport">\r
         <meta content="" name="keywords">\r
         <meta content="" name="description">\r
@@ -2017,7 +2017,7 @@ Please change the parent <Route path="${e}"> to <Route path="${e===`/`?`*`:`${e}
 \r
     <head>\r
         <meta charset="utf-8">\r
-        <title>THEMosque - Mosque Website Template</title>\r
+        <title>ISNNS Ummah</title>\r
         <meta content="width=device-width, initial-scale=1.0" name="viewport">\r
         <meta content="" name="keywords">\r
         <meta content="" name="description">\r
@@ -2130,7 +2130,7 @@ Please change the parent <Route path="${e}"> to <Route path="${e===`/`?`*`:`${e}
 \r
     <head>\r
         <meta charset="utf-8">\r
-        <title>THEMosque - Mosque Website Template</title>\r
+        <title>ISNNS Ummah</title>\r
         <meta content="width=device-width, initial-scale=1.0" name="viewport">\r
         <meta content="" name="keywords">\r
         <meta content="" name="description">\r
