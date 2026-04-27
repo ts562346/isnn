@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef } from "react";
 import { useLocation } from "react-router-dom";
 
 const fileToRoute = {
@@ -21,7 +21,7 @@ function extractMainContent(htmlText) {
 
   body.querySelector("#spinner")?.remove();
   body.querySelector(".container-fluid.fixed-top")?.remove();
-  body.querySelector(".container-fluid.footer")?.remove();
+  body.querySelectorAll(".container-fluid.footer, .footer, footer").forEach((footerNode) => footerNode.remove());
   body.querySelector(".back-to-top")?.remove();
   body.querySelectorAll("script").forEach((script) => script.remove());
 
@@ -159,27 +159,10 @@ function scrollToHashTarget(rootElement, hash) {
   return true;
 }
 
-export default function LegacyPage({ file }) {
-  const [content, setContent] = useState("");
+export default function HtmlPage({ html, isHome = false }) {
+  const content = useMemo(() => extractMainContent(html), [html]);
   const mainRef = useRef(null);
   const location = useLocation();
-
-  useEffect(() => {
-    let active = true;
-
-    fetch(`/pages/${file}`)
-      .then((response) => response.text())
-      .then((htmlText) => {
-        if (!active) {
-          return;
-        }
-        setContent(extractMainContent(htmlText));
-      });
-
-    return () => {
-      active = false;
-    };
-  }, [file]);
 
   useEffect(() => {
     const root = mainRef.current;
@@ -222,7 +205,7 @@ export default function LegacyPage({ file }) {
     return () => {
       observer.disconnect();
     };
-  }, [content, file]);
+  }, [content]);
 
   useEffect(() => {
     const root = mainRef.current;
@@ -250,11 +233,11 @@ export default function LegacyPage({ file }) {
         window.clearTimeout(timer);
       }
     };
-  }, [content, file, location.hash]);
+  }, [content, location.hash]);
 
   useEffect(() => {
     const root = mainRef.current;
-    if (!root || !content || file !== "index.html") {
+    if (!root || !content || !isHome) {
       return;
     }
 
@@ -322,7 +305,7 @@ export default function LegacyPage({ file }) {
         const { starts, iqamas } = getPrayerDataForToday(confData);
         applyPrayerTimes(starts, iqamas);
         setStatus("Prayer times auto-updated from Mawaqit (Halifax).");
-      } catch (error) {
+      } catch {
         if (!active) {
           return;
         }
@@ -340,7 +323,7 @@ export default function LegacyPage({ file }) {
         window.clearInterval(refreshInterval);
       }
     };
-  }, [content, file]);
+  }, [content, isHome]);
 
   return <main ref={mainRef} dangerouslySetInnerHTML={{ __html: content }} />;
 }

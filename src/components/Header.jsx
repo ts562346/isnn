@@ -8,6 +8,7 @@ export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
   const isAboutActive = location.pathname === "/about";
+  const isEventsProgramsActive = location.pathname === "/activity";
 
   useEffect(() => {
     const onScroll = () => {
@@ -33,8 +34,8 @@ export default function Header() {
             <div className="col-lg-7 text-start">
               <div className="h-100 d-inline-flex align-items-center me-4">
                 <span className="fa fa-phone-alt me-2 text-dark"></span>
-                <a href="mailto:isnnsummah@gmail.com" className="text-secondary">
-                  <span>Contact by email</span>
+                <a href="tel:+01234567890" className="text-secondary">
+                  <span>+012 345 67890</span>
                 </a>
               </div>
               <div className="h-100 d-inline-flex align-items-center">
@@ -96,13 +97,16 @@ export default function Header() {
                 Home
               </NavLink>
               <div className="nav-item dropdown">
-                <a
-                  href="#"
-                  className={`nav-link dropdown-toggle${isAboutActive ? " active" : ""}`}
-                  data-bs-toggle="dropdown"
-                >
+                <NavLink to="/about" className={`nav-link${isAboutActive ? " active" : ""}`}>
                   About
-                </a>
+                </NavLink>
+                <button
+                  className={`nav-link dropdown-toggle dropdown-link-toggle${isAboutActive ? " active" : ""}`}
+                  type="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                  aria-label="Toggle About menu"
+                ></button>
                 <div className="dropdown-menu m-0 rounded-0">
                   <Link to="/about#who-we-are" className="dropdown-item">
                     Who we are
@@ -110,44 +114,50 @@ export default function Header() {
                   <Link to="/about#how-we-started" className="dropdown-item">
                     How we started
                   </Link>
-                  <Link to="/about#mission" className="dropdown-item">
+                  <Link to="/about#our-mission" className="dropdown-item">
                     Mission
                   </Link>
-                  <Link to="/about#vision" className="dropdown-item">
+                  <Link to="/about#our-vision" className="dropdown-item">
                     Vision
                   </Link>
                 </div>
               </div>
               <div className="nav-item dropdown">
-                <a
-                  href="#"
-                  className={`nav-link dropdown-toggle${isAboutActive ? " active" : ""}`}
+                <NavLink to="/activity" className={`nav-link${isEventsProgramsActive ? " active" : ""}`}>
+                  Events & Programs
+                </NavLink>
+                <button
+                  className={`nav-link dropdown-toggle dropdown-link-toggle${isEventsProgramsActive ? " active" : ""}`}
+                  type="button"
                   data-bs-toggle="dropdown"
-                >
-                  Events & Gatherings
-                </a>
+                  aria-expanded="false"
+                  aria-label="Toggle Events & Programs menu"
+                ></button>
                 <div className="dropdown-menu m-0 rounded-0">
-                  <Link to="/activity" className="dropdown-item">
+                  <Link to="/activity#azkar-gathering" className="dropdown-item">
                     Azkar Gathering
                   </Link>
-                  <Link to="/activity" className="dropdown-item">
+                  <Link to="/activity#ramadan-lectures" className="dropdown-item">
                     Ramadan Lectures
                   </Link>
-                  <Link to="/activity" className="dropdown-item">
-                    Assistance to Nigeran International Students in Nova Scotia during Ramadan
+                  <Link to="/activity#ramadan-iftar" className="dropdown-item">
+                    Ramadan Iftar
                   </Link>
-                  <Link to="/activity" className="dropdown-item">
+                  <Link to="/activity#student-assistance-ramadan" className="dropdown-item">
+                    Assistance to Nigerian International Students in Nova Scotia during Ramadan
+                  </Link>
+                  <Link to="/activity#eid-il-adha-celebration" className="dropdown-item">
                     Eid-Il-Adha Celebration
                   </Link>
                 </div>
               </div>
-              <NavLink to="/event" className={navClass}>
+              <NavLink to="/woman" className={navClass}>
                 Woman
               </NavLink>
-              <NavLink to="/sermon" className={navClass}>
+              <NavLink to="/youth" className={navClass}>
                 Youth
               </NavLink>
-              <div className="nav-item dropdown">
+              {/* <div className="nav-item dropdown">
                 <a href="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                   Pages
                 </a>
@@ -165,14 +175,17 @@ export default function Header() {
                     Islamic schools in NS
                   </NavLink>
                 </div>
-              </div>
+              </div> */}
+              <NavLink to="/gallery" className={navClass}>
+                Gallery
+              </NavLink>
               <NavLink to="/contact" className={navClass}>
                 Contact
               </NavLink>
             </div>
             <a
               href="mailto:isnnsummah@gmail.com?subject=ISNNS%20Monthly%20Contribution"
-              className="btn btn-primary py-2 px-4 d-none d-xl-inline-block"
+              className="btn btn-primary hero-donate-btn d-none d-xl-inline-block"
             >
               Donate Now
             </a>
