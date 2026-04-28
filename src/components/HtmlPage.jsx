@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
 const fileToRoute = {
@@ -167,6 +167,7 @@ export default function HtmlPage({ html, isHome = false }) {
   const mainRef = useRef(null);
   const location = useLocation();
   const navigate = useNavigate();
+  const [showDonatePopup, setShowDonatePopup] = useState(false);
 
   useEffect(() => {
     const root = mainRef.current;
@@ -183,6 +184,19 @@ export default function HtmlPage({ html, isHome = false }) {
       const href = anchor.getAttribute("href");
       const target = anchor.getAttribute("target");
       if (!href || target === "_blank") {
+        return;
+      }
+
+      const normalizedHref = href.trim().toLowerCase();
+      const anchorText = anchor.textContent?.trim().toLowerCase();
+      const isDonateLink =
+        anchor.dataset.donatePopup === "true" ||
+        anchor.classList.contains("hero-donate-btn") ||
+        normalizedHref.startsWith("mailto:isnnsummah@gmail.com") ||
+        anchorText === "donate now";
+      if (isDonateLink) {
+        event.preventDefault();
+        setShowDonatePopup(true);
         return;
       }
 
@@ -368,5 +382,40 @@ export default function HtmlPage({ html, isHome = false }) {
     };
   }, [content, isHome]);
 
-  return <main ref={mainRef} dangerouslySetInnerHTML={{ __html: content }} />;
+  return (
+    <>
+      <main ref={mainRef} dangerouslySetInnerHTML={{ __html: content }} />
+      {showDonatePopup ? (
+        <>
+          <div className="modal fade show d-block" tabIndex="-1" role="dialog" aria-modal="true">
+            <div className="modal-dialog modal-dialog-centered" role="document">
+              <div className="modal-content">
+                <div className="modal-header">
+                  <h5 className="modal-title">Donation Information</h5>
+                  <button
+                    type="button"
+                    className="btn-close"
+                    aria-label="Close"
+                    onClick={() => setShowDonatePopup(false)}
+                  ></button>
+                </div>
+                <div className="modal-body">
+                  <p className="mb-0">
+                    You are encouraged to donate by sending fund through email money transfer to{" "}
+                    isnnsummah@gmail.com.
+                  </p>
+                </div>
+                <div className="modal-footer">
+                  <button type="button" className="btn btn-primary" onClick={() => setShowDonatePopup(false)}>
+                    Close
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="modal-backdrop fade show"></div>
+        </>
+      ) : null}
+    </>
+  );
 }

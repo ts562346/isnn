@@ -32,9 +32,9 @@ export default function Footer() {
                 We are Nigerians in Nova Scotia committed to preserving and propagating Islam while nurturing future generations upon 
                 authentic Islamic values.
               </p>
-              <a href="" className="btn btn-primary py-2 px-4">
+              <button type="button" className="btn btn-primary py-2 px-4" onClick={() => setShowDonatePopup(true)}>
                 Donate Now
-              </a>
+              </button>
             </div>
           </div>
           <div className="col-md-6 col-lg-6 col-xl-3">
