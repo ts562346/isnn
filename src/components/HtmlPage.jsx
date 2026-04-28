@@ -1,14 +1,17 @@
 import { useEffect, useMemo, useRef } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const fileToRoute = {
   "index.html": "/",
   "about.html": "/about",
   "activity.html": "/activity",
-  "event.html": "/event",
-  "sermon.html": "/sermon",
+  "event.html": "/woman",
+  "woman.html": "/woman",
+  "sermon.html": "/youth",
+  "youth.html": "/youth",
   "blog.html": "/blog",
-  "team.html": "/team",
+  "team.html": "/gallery",
+  "gallery.html": "/gallery",
   "testimonial.html": "/testimonial",
   "contact.html": "/contact",
   "404.html": "/404",
@@ -163,6 +166,39 @@ export default function HtmlPage({ html, isHome = false }) {
   const content = useMemo(() => extractMainContent(html), [html]);
   const mainRef = useRef(null);
   const location = useLocation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const root = mainRef.current;
+    if (!root) {
+      return;
+    }
+
+    const onLinkClick = (event) => {
+      const anchor = event.target.closest("a[href]");
+      if (!anchor) {
+        return;
+      }
+
+      const href = anchor.getAttribute("href");
+      const target = anchor.getAttribute("target");
+      if (!href || target === "_blank") {
+        return;
+      }
+
+      if (!href.startsWith("/")) {
+        return;
+      }
+
+      event.preventDefault();
+      navigate(href);
+    };
+
+    root.addEventListener("click", onLinkClick);
+    return () => {
+      root.removeEventListener("click", onLinkClick);
+    };
+  }, [navigate]);
 
   useEffect(() => {
     const root = mainRef.current;
@@ -206,6 +242,13 @@ export default function HtmlPage({ html, isHome = false }) {
       observer.disconnect();
     };
   }, [content]);
+
+  useEffect(() => {
+    if (location.hash) {
+      return;
+    }
+    window.scrollTo({ top: 0, behavior: "auto" });
+  }, [location.pathname, location.hash]);
 
   useEffect(() => {
     const root = mainRef.current;

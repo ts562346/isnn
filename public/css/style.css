@@ -1,3 +1,14 @@
+/* Logo-matched palette */
+:root {
+    --bs-primary: #009e54;
+    --bs-primary-rgb: 0, 158, 84;
+    --bs-secondary: #0f5f3a;
+    --bs-secondary-rgb: 15, 95, 58;
+    --bs-dark: #231f20;
+    --bs-dark-rgb: 35, 31, 32;
+    --bs-link-color: #009e54;
+    --bs-link-hover-color: #0f5f3a;
+}
 
 /*** Spinner Start ***/
 
@@ -252,7 +263,7 @@ h4, h5, h6, .h4, .h5, .h6 {
 
 .hero-prayer-card {
     padding: 1.5rem 1.75rem;
-    border: 2px solid var(--bs-primary);
+    border: 0;
     border-radius: 0;
     background: rgba(255, 255, 255, .72);
     backdrop-filter: blur(1px);
@@ -329,6 +340,14 @@ h4, h5, h6, .h4, .h5, .h6 {
 
 .hero-header .breadcrumb-item {
     font-size: 18px;
+}
+
+.hero-header .breadcrumb .breadcrumb-item a {
+    color: var(--bs-primary) !important;
+}
+
+.hero-header .breadcrumb .breadcrumb-item a:hover {
+    color: var(--bs-secondary) !important;
 }
 /*** Hero Header ***/
 
@@ -488,7 +507,7 @@ h4, h5, h6, .h4, .h5, .h6 {
 
 .team .team-item:hover .team-content {
     opacity: 1;
-    background: rgba(241, 193, 82, .7);
+    background: rgba(0, 158, 84, .7);
 }
 /*** Team End ***/
 
@@ -585,4 +604,62 @@ h4, h5, h6, .h4, .h5, .h6 {
 .footer-item a i:hover {
     color: var(--bs-primary) !important;
 }
+
+.footer .container.py-4 a.border-bottom {
+    color: var(--bs-primary) !important;
+}
+
+.footer .container.py-4 a.border-bottom:hover {
+    color: var(--bs-secondary) !important;
+}
 /*** Footer End ***/
+
+/* Bootstrap utility/theme overrides (site uses public/css/style.css as runtime stylesheet) */
+.text-primary,
+a.text-primary:hover,
+a.text-primary:focus {
+    color: var(--bs-primary) !important;
+}
+
+.bg-primary {
+    background-color: var(--bs-primary) !important;
+}
+
+.border-primary {
+    border-color: var(--bs-primary) !important;
+}
+
+.btn-primary {
+    color: #fff !important;
+    background-color: var(--bs-primary) !important;
+    border-color: var(--bs-primary) !important;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+    color: #fff !important;
+    background-color: var(--bs-secondary) !important;
+    border-color: var(--bs-secondary) !important;
+}
+
+.btn-outline-primary {
+    color: var(--bs-primary) !important;
+    border-color: var(--bs-primary) !important;
+}
+
+.btn-outline-primary:hover,
+.btn-outline-primary:focus,
+.btn-outline-primary:active {
+    color: #fff !important;
+    background-color: var(--bs-primary) !important;
+    border-color: var(--bs-primary) !important;
+}
+
+.mosque-link {
+    color: var(--bs-primary) !important;
+}
+
+.mosque-link:hover {
+    color: var(--bs-secondary) !important;
+}

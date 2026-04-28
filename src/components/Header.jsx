@@ -6,6 +6,7 @@ const navClass = ({ isActive }) =>
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [showDonatePopup, setShowDonatePopup] = useState(false);
   const location = useLocation();
   const isAboutActive = location.pathname === "/about";
   const isEventsProgramsActive = location.pathname === "/activity";
@@ -35,7 +36,7 @@ export default function Header() {
               <div className="h-100 d-inline-flex align-items-center me-4">
                 <span className="fa fa-phone-alt me-2 text-dark"></span>
                 <a href="tel:+01234567890" className="text-secondary">
-                  <span>+012 345 67890</span>
+                  <span>+1 902 579 6177</span>
                 </a>
               </div>
               <div className="h-100 d-inline-flex align-items-center">
@@ -152,10 +153,10 @@ export default function Header() {
                 </div>
               </div>
               <NavLink to="/woman" className={navClass}>
-                Woman
+                Woman Wing
               </NavLink>
               <NavLink to="/youth" className={navClass}>
-                Youth
+                Youth Wing
               </NavLink>
               {/* <div className="nav-item dropdown">
                 <a href="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">
@@ -183,15 +184,48 @@ export default function Header() {
                 Contact
               </NavLink>
             </div>
-            <a
-              href="mailto:isnnsummah@gmail.com?subject=ISNNS%20Monthly%20Contribution"
+            <button
+              type="button"
               className="btn btn-primary hero-donate-btn d-none d-xl-inline-block"
+              onClick={() => setShowDonatePopup(true)}
             >
               Donate Now
-            </a>
+            </button>
           </div>
         </nav>
       </div>
+      {showDonatePopup ? (
+        <>
+          <div className="modal fade show d-block" tabIndex="-1" role="dialog" aria-modal="true">
+            <div className="modal-dialog modal-dialog-centered" role="document">
+              <div className="modal-content">
+                <div className="modal-header">
+                  <h5 className="modal-title">Donation Information</h5>
+                  <button
+                    type="button"
+                    className="btn-close"
+                    aria-label="Close"
+                    onClick={() => setShowDonatePopup(false)}
+                  ></button>
+                </div>
+                <div className="modal-body">
+                  <p className="mb-0">
+                    You are encouraged to donate by sending fund through email money transfer to
+                    {" "}
+                    isnnsummah@gmail.com.
+                  </p>
+                </div>
+                <div className="modal-footer">
+                  <button type="button" className="btn btn-primary" onClick={() => setShowDonatePopup(false)}>
+                    Close
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="modal-backdrop fade show"></div>
+        </>
+      ) : null}
     </div>
   );
 }

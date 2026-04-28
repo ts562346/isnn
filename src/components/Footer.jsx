@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Footer() {
   return (
     <div className="container-fluid footer pt-5 wow fadeIn" data-wow-delay="0.1s">
@@ -42,7 +44,7 @@ export default function Footer() {
                     <i className="fa fa-map-marker-alt text-dark"></i>
                   </span>
                   <a href="" className="text-body">
-                    123 Street, New York, USA
+                    71 Fleetview Dr, Halifax, NS
                   </a>
                 </div>
                 <h6 className="text-secondary mt-4 mb-0">Our Mobile</h6>
@@ -51,7 +53,7 @@ export default function Footer() {
                     <i className="fa fa-phone-alt text-dark"></i>
                   </span>
                   <a href="" className="text-body">
-                    +012 345 67890
+                    +1 902 579 6177
                   </a>
                 </div>
               </div>
@@ -90,19 +92,19 @@ export default function Footer() {
           </div>
           <div className="col-md-6 col-lg-6 col-xl-3">
             <div className="footer-item mt-5">
-              <h4 className="text-light mb-4">Latest Post</h4>
+              <h4 className="text-light mb-4">Community Groups</h4>
               <div className="d-flex border-bottom border-secondary py-4">
                 <img src="img/blog-mini-1.jpg" className="img-fluid flex-shrink-0" alt="" />
                 <div className="ps-3">
-                  <p className="mb-0 text-muted">01 Jan 2045</p>
-                  <a href="" className="text-body">Lorem ipsum dolor sit amet elit eros vel</a>
+                  <p className="mb-0 text-muted">Woman Wing</p>
+                  <Link to="/woman" className="text-body">Programs and activities for women in our community.</Link>
                 </div>
               </div>
               <div className="d-flex py-4">
                 <img src="img/blog-mini-2.jpg" className="img-fluid flex-shrink-0" alt="" />
                 <div className="ps-3">
-                  <p className="mb-0 text-muted">01 Jan 2045</p>
-                  <a href="" className="text-body">Lorem ipsum dolor sit amet elit eros vel</a>
+                  <p className="mb-0 text-muted">Youth Wing</p>
+                  <Link to="/youth" className="text-body">Programs designed to support and engage youth.</Link>
                 </div>
               </div>
             </div>
