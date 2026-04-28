@@ -1,6 +1,9 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function Footer() {
+  const [showDonatePopup, setShowDonatePopup] = useState(false);
+
   return (
     <div className="container-fluid footer pt-5 wow fadeIn" data-wow-delay="0.1s">
       <div className="container py-5">
@@ -63,30 +66,34 @@ export default function Footer() {
             <div className="footer-item mt-5">
               <h4 className="text-light mb-4">Explore Link</h4>
               <div className="d-flex flex-column align-items-start">
-                <a className="text-body mb-2" href="">
+                <Link className="text-body mb-2" to="/">
                   <i className="fa fa-check text-primary me-2"></i>Home
-                </a>
-                <a className="text-body mb-2" href="">
+                </Link>
+                <Link className="text-body mb-2" to="/about">
                   <i className="fa fa-check text-primary me-2"></i>About
-                </a>
-                <a className="text-body mb-2" href="">
+                </Link>
+                <Link className="text-body mb-2" to="/activity">
                   <i className="fa fa-check text-primary me-2"></i>Events & Programs
-                </a>
-                <a className="text-body mb-2" href="">
-                  <i className="fa fa-check text-primary me-2"></i>Woman
-                </a>
-                <a className="text-body mb-2" href="">
-                  <i className="fa fa-check text-primary me-2"></i>Youth
-                </a>
-                <a className="text-body mb-2" href="">
+                </Link>
+                <Link className="text-body mb-2" to="/woman">
+                  <i className="fa fa-check text-primary me-2"></i>Woman Wing
+                </Link>
+                <Link className="text-body mb-2" to="/youth">
+                  <i className="fa fa-check text-primary me-2"></i>Youth Wing
+                </Link>
+                <Link className="text-body mb-2" to="/gallery">
                   <i className="fa fa-check text-primary me-2"></i>Gallery
-                </a>
-                <a className="text-body mb-2" href="">
+                </Link>
+                <Link className="text-body mb-2" to="/contact">
                   <i className="fa fa-check text-primary me-2"></i>Contact
-                </a>
-                <a className="text-body mb-2" href="">
+                </Link>
+                <button
+                  type="button"
+                  className="text-body mb-2 btn p-0 text-start border-0"
+                  onClick={() => setShowDonatePopup(true)}
+                >
                   <i className="fa fa-check text-primary me-2"></i>Donation
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -125,6 +132,37 @@ export default function Footer() {
           </div>
         </div>
       </div>
+      {showDonatePopup ? (
+        <>
+          <div className="modal fade show d-block" tabIndex="-1" role="dialog" aria-modal="true">
+            <div className="modal-dialog modal-dialog-centered" role="document">
+              <div className="modal-content">
+                <div className="modal-header">
+                  <h5 className="modal-title">Donation Information</h5>
+                  <button
+                    type="button"
+                    className="btn-close"
+                    aria-label="Close"
+                    onClick={() => setShowDonatePopup(false)}
+                  ></button>
+                </div>
+                <div className="modal-body">
+                  <p className="mb-0">
+                    You are encouraged to donate by sending fund through email money transfer to{" "}
+                    isnnsummah@gmail.com.
+                  </p>
+                </div>
+                <div className="modal-footer">
+                  <button type="button" className="btn btn-primary" onClick={() => setShowDonatePopup(false)}>
+                    Close
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="modal-backdrop fade show"></div>
+        </>
+      ) : null}
     </div>
   );
 }
